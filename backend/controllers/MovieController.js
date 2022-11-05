@@ -1,3 +1,4 @@
+const { find } = require('../models/Movie');
 const Movie = require('../models/Movie');
 
 module.exports = class FimlController {
@@ -52,8 +53,9 @@ module.exports = class FimlController {
     }
   }
 
-  static async getAllMovie(req, res) {
-    res.status(200).json({ message: 'todos os filmes aqui!' })
+  static async getAll(req, res) {
+    const movies = await Movie.find().sort('-createdAt');
+    res.status(200).json({ message: 'success', total: movies.length, movies })
   }
 
   static async getMovieById(req, res) {
