@@ -11,4 +11,3 @@ export type ResultAll = {
   total: number;
   movies: Movie[]
 }
-
