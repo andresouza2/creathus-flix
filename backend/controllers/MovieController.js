@@ -1,4 +1,3 @@
-const { find } = require('../models/Movie');
 const Movie = require('../models/Movie');
 
 module.exports = class FimlController {
@@ -7,6 +6,7 @@ module.exports = class FimlController {
     const { author, title, description } = req.body;
 
     let image = ''
+
     if (req.file) {
       image = req.file.filename
     }
@@ -68,6 +68,6 @@ module.exports = class FimlController {
       return
     }
 
-    res.status(200).json({ movie })
+    res.status(200).json(movie)
   }
 }
